@@ -1,5 +1,6 @@
 from django.urls import path
 from django.contrib.auth.views import LogoutView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from .views import (
     custom_login,
     index,
@@ -36,3 +37,4 @@ urlpatterns = [
     path('platba/<int:reservation_id>/', stripe_payment, name='stripe_payment'),
     path('platba-uspesna/<int:reservation_id>/', platba_uspesna, name='platba_uspesna'),
 ]
+urlpatterns += staticfiles_urlpatterns()

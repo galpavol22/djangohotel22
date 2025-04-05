@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+import dj_database_url
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -50,16 +52,31 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hotel_booking.wsgi.application'
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'hotel_tatry_db',
+#        'USER': 'postgres',
+#        'PASSWORD': 'postgres',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+#}
+
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hotel_tatry_db',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+
+
+
+
+
+
+
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -97,3 +114,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'hoteltatrydjango2@gmail.com'
 EMAIL_HOST_PASSWORD = 'bypovxjpvhhsqblu'
+
+
+STATIC_URL = 'static/'
+MEDIA_URL = 'media/'
