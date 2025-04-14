@@ -73,7 +73,7 @@
       >
         <strong>Izba:</strong> {{ reservation.room.room_number }}<br />
         <strong>Typ izby:</strong> {{ reservation.room.get_room_type_display
-        }}<br />
+        }} <br />
         <strong>Príchod:</strong> {{ reservation.check_in }}<br />
         <strong>Odchod:</strong> {{ reservation.check_out }}<br />
         <strong>Cena:</strong> {{ reservation.total_price }} €<br />
